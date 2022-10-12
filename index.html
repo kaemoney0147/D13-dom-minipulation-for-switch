@@ -129,6 +129,7 @@ The user should be able to see the list of tasks, add new ones, delete existing 
             let li = document.querySelectorAll("li");
             for (let i = 0; i < li.length; i++) {
                 li[i].style.backgroundColor = colorChangeBG;
+                document.getElementById("colorPicker").onclick = changeTaskBackgroundColor;
             }
         }
         /* ### EXTRA ### */
