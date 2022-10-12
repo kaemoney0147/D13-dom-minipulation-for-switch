@@ -70,7 +70,7 @@ The user should be able to see the list of tasks, add new ones, delete existing 
     <hr />
 
     <input type="color" placeholder="Color" id="colorPicker" />
-    <input type="button" onclick='changeTaskBackgroundColor()' value="Change task background" />
+    <input type="button" id="buttonclick" value="Change task background" />
 
     <hr />
 
@@ -124,21 +124,26 @@ The user should be able to see the list of tasks, add new ones, delete existing 
                  Create a function "changeTaskBackgroundColor" and attach it to the "Change task background" button via JavaScript (not via html attribute)
                  Take the color from the color picker ad apply it as background to every list item
         */
-        const changeTaskBackgroundColor = function () {
-            let colorChangeBG = document.getElementById("colorPicker").value;
-            let li = document.querySelectorAll("li");
-            for (let i = 0; i < li.length; i++) {
-                li[i].style.backgroundColor = colorChangeBG;
-                document.getElementById("colorPicker").onclick = changeTaskBackgroundColor;
+        const addNumberToResult = function (event) {
+            let changeBG = document.getElementById("colorPicker").value;
+            const Li = document.querySelectorAll("li");
+            for (let i = 0; i < Li.length; i++) {
+                console.log(Li.innerText);
+                Li[i].style.backgroundColor = changeBG;
             }
-        }
+        };
+
+        const changeTaskBackgroundColor = function () {
+            const buttonChangeBG = document.getElementById("buttonclick");
+            buttonChangeBG.addEventListener("click", addNumberToResult);
+        };
+
+        changeTaskBackgroundColor();
         /* ### EXTRA ### */
 
         /* EXERCISE 10:
                   Attach an eventListener to each new task you create. When the task receives the click it should be removed (only the clicked task should disappear)*/
-        for (let node of removeFirst) {
-            node.addEventListener('click', removeFirstItem)
-        }
+
         /* EXERCISE 11:
                  Create a function "bubbleSort()" which sorts the task list alphabetically using the bubble sort algorithm
         */
